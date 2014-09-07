@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="SionBlog">
+<head>
+    <meta charset="UTF-8">
+    <title>XXXX's Blog</title>
+    <link rel="stylesheet" href="uikit-2.9.0/css/uikit.css">
+</head>
+<body>
+    <!-- ==页面加载进度条== -->
+    <div class="uk-progress uk-progress-striped uk-active" ng-hide="progress == 100">
+        <div class="uk-progress-bar" style="width: 100%;" ng-style="{width: progress+'%'}"></div>
+    </div>
+
+    <!-- 前台页面布局 -->
+    <div ng-if="!inAdminPanel" ng-include="'/tpl/' + theme + '/layout.html'"></div>
+
+    <!-- 后台页面布局 -->
+    <div ng-if="inAdminPanel" ng-include="'/tpl/admin/layout.html'"></div>
+
+    <script src="/js/lib/angular-1.2.23/angular.js"></script>
+    <script src="/js/lib/angular-1.2.23/angular-route.js"></script>
+    <script src="/js/ngApp.js"></script>
+</body>
+</html>
