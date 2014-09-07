@@ -1,0 +1,6 @@
+<div class="c-article-list">
+    <article class="uk-article" ng-repeat="article in articles">
+        <h1 class="uk-article-title"><a ng-href="#/article/{{article.id}}">{{article.title}}</a></h1>
+        <p class="c-article-content" ng-bind-html="outHTML(article.content)"></p>
+    </article>  
+</div>
