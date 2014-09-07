@@ -9,6 +9,11 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
             controller: HomeCtrl,
             inAdminPanel: false
         })
+        .when("/article/:id",{
+            templateUrl: 'article.html',
+            controller: ArticleCtrl,
+            inAdminPanel: false
+        })
 
         // 默认页面
         .otherwise('/',{
@@ -31,6 +36,10 @@ app.run(['$rootScope','$location','$http', '$route','$timeout', function($rootSc
 
     // 根据主题加载响应的模板(路由变更开始事件)
     $rootScope.$on("$routeChangeStart", function(event, next, current){
+        if(next.$$route == undefined){
+            return;
+        }
+
         if(!next.$$route.inAdminPanel){
             next.templateUrl = "/tpl/" +  $rootScope.theme + "/" + next.templateUrl;
         }else{

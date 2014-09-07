@@ -3,7 +3,7 @@ function header($scope,$route, $location){
     $scope.navs = {
         "主页": {href: "#/", active: false},
         "留言板": {href: "#/messageBoard", active: false},
-        "关于我": {href: "#/messageBoard", active: false}
+        "关于我": {href: "#/aboutme", active: false}
     };
 
     // 设置当前的页面

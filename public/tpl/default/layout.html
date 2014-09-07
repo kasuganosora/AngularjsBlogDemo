@@ -4,7 +4,7 @@
         <a href="/" class="uk-navbar-brand">{{blogName}}</a>
         <ul class="uk-navbar-nav">
             <li ng-repeat="(name,nav) in navs" ng-class="{'uk-active': nav.active}">
-                <a ng-href="{nav.active}">{{name}}</a>
+                <a ng-href="{{nav.href}}">{{name}}</a>
             </li>
         </ul>
     </nav>
