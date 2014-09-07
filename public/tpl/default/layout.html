@@ -1,9 +1,11 @@
 <div class="uk-grid c-page">
     <!-- == S:顶栏== -->
-    <nav class="uk-navbar uk-width-1-1">
+    <nav class="uk-navbar uk-width-1-1" ng-controller="header">
         <a href="/" class="uk-navbar-brand">{{blogName}}</a>
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="">...</a></li>
+            <li ng-repeat="(name,nav) in navs" ng-class="{'uk-active': nav.active}">
+                <a ng-href="{nav.active}">{{name}}</a>
+            </li>
         </ul>
     </nav>
 </div>
