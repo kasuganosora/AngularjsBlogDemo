@@ -23,4 +23,7 @@ module.exports = function(app){
     // 设定路由
     app.route("/")
         .get(controllers.Front.index);
+
+    app.route("/admin/login")
+        .post(controllers.Admin.login)
 };

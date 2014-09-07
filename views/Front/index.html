@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>XXXX's Blog</title>
     <link rel="stylesheet" href="uikit-2.9.0/css/uikit.css">
+    <script>
+            window.isLogin = <%= isLogin %>;
+    </script>
 </head>
 <body>
     <!-- ==页面加载进度条== -->
@@ -11,14 +14,13 @@
         <div class="uk-progress-bar" style="width: 100%;" ng-style="{width: progress+'%'}"></div>
     </div>
 
-    <!-- 前台页面布局 -->
-    <div ng-if="!inAdminPanel" ng-include="'/tpl/' + theme + '/layout.html'"></div>
+    <!-- 页面布局 -->
+    <div ng-include="'/tpl/' + theme + '/layout.html'"></div>
 
-    <!-- 后台页面布局 -->
-    <div ng-if="inAdminPanel" ng-include="'/tpl/admin/layout.html'"></div>
 
     <script src="/js/lib/angular-1.2.23/angular.js"></script>
     <script src="/js/lib/angular-1.2.23/angular-route.js"></script>
+    <script src="/js/lib/angular-1.2.23/angular-resource.js"></script>
     <!-- == 页头控制器 == -->
     <script src="/js/ctrls/header.js"></script>
     <!-- == 侧栏控制器 == -->
@@ -29,6 +31,14 @@
 
     <!-- == 文章页控制器 == -->
     <script src="/js/ctrls/ArticleCtrl.js"></script>
+
+    <!-- == 全部后台控制器 == -->
+    <script src="/js/ctrls/AdminCtrls.js"></script>
+
+    <!-- == 全部服务 == -->
+    <script src="/js/services.js"></script>
+
+
     <!-- == APP 主文件 == -->
     <script src="/js/ngApp.js"></script>
 </body>

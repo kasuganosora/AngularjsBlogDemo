@@ -14,7 +14,7 @@
     <nav class="uk-width-1-6 c-sidebar" ng-controller="sidebar">
         <div class="c-widget">
              <h3 class="c-widget-title">最近文章</h3>
-             <ul>
+             <ul class="uk-list">
                  <li ng-repeat="mon in recentArticles"><a ng-href="#/articles/{{mon.date}}">{{mon.dateStr}} ({{mon.count}})</a></li>
              </ul>
         </div>
@@ -22,7 +22,7 @@
 
         <div class="c-widget">
             <h3 class="c-widget-title">功能</h3>
-             <ul>
+             <ul class="uk-list uk-list-line">
                  <li><a href="/">登录</a></li>
              </ul>
         </div>

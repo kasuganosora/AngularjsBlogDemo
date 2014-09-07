@@ -6,7 +6,9 @@
   "dependencies": {
     "express": "*",
     "level": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "express-session": "*",
+    "body-parser": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
