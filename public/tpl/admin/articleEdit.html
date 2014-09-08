@@ -1,0 +1,13 @@
+<form ng-submit="onSubmit(article)" class="uk-form uk-width-1-1">
+    <fieldset data-uk-margin>
+        <div class="uk-form-row">
+            <input type="text" placeholder="标题" class="uk-form-width-large" ng-model="article.title">
+        </div>
+        <div class="uk-form-row">
+            <textarea placeholder="内容" class="uk-form-width-large" rows="30" ng-model="article.content"></textarea>
+        </div>
+        <div class="uk-form-row">
+            <button type="submit" class="uk-button">保存</button>
+        </div>
+    </fieldset>
+</form>

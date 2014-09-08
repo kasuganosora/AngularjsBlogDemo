@@ -1,5 +1,6 @@
 fs = require('fs');
 path = require('path');
+var express = require('express');
 
 module.exports = function(app){
     // 全部控制器
@@ -26,4 +27,28 @@ module.exports = function(app){
 
     app.route("/admin/login")
         .post(controllers.Admin.login)
+
+
+    // api 路由
+    var apiRouter = express.Router()
+        .use(function(req, res, next){
+            //  权限审查
+            if(req.method == "GET" && req.path.toLowerCase().indexOf("/article") == 0){
+                return next();
+            }
+
+            if(req.session.user == undefined){
+                return res.status(403).end("403 Forbidden");
+            }
+
+            next();
+        });
+        apiRouter.get("/article", controllers.Article.query);
+        apiRouter.get("/article/:id", controllers.Article.get);
+        apiRouter.post("/article", controllers.Article.save);
+        apiRouter.post("/article/:id", controllers.Article.save);
+        apiRouter.delete("/article/:id", controllers.Article.remove);
+        apiRouter.get("/article_recent", controllers.Article.recent);
+
+    app.use('/api', apiRouter);
 };

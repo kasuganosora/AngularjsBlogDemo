@@ -1,10 +1,22 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var levelup = require('level')
+
+// 初始化数据库
+var db = levelup("./db",{json:true, valueEncoding: "json"});
+
+app.use(function(req, res, next){
+    res.db = db;
+    next();
+});
+
 
 // 设置Session
 var session = require('express-session');
 app.use(session({secret: 'KasuganoSora', cookie: { maxAge: 2592000000 }}))
+
+
 
 app.use(bodyParser.json());
 

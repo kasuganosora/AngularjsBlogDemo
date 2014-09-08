@@ -1,1 +1,16 @@
-logined
+<table style="width:98%">
+    <thead>
+        <tr>
+            <th style="text-align: left;">标题</th>
+            <th style="text-align: right;">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="article in articles" id="article-{{article.id}}">
+            <td style="text-align: left;"><a ng-href="#/admin/article/set/{{article.id}}">{{article.title}}</a></td>
+            <td style="text-align: right;">
+                <button ng-click="destroy(article)">删除</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

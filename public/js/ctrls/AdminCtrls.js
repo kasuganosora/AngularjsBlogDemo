@@ -15,6 +15,30 @@ function AdminLogin($scope,User, $location, $rootScope){
     };
 }
 
-function AdminCtrl(){}
 
-function AdminArticleSetCtrl(){}
+
+function AdminCtrl($scope, Article){
+    $scope.articles = Article.query();
+    $scope.destroy = function(art){
+        Article.remove({id:art.id});
+        $scope.articles = Article.query();
+    };
+}
+
+
+
+function AdminArticleSetCtrl($scope, $routeParams, Article){
+    var id = $routeParams.id == undefined ? null :  $routeParams.id.trim();
+
+    if(id != null){
+        $scope.article = Article.get({id:id});
+    }
+
+    $scope.onSubmit = function(article){
+        article.id = id;
+        Article.save(article,function(){
+            alert("保存成功!");
+        });
+    };
+
+}
